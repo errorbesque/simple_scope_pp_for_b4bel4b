@@ -6,7 +6,7 @@
 
 import processing.video.*;
 PFont italicfont;
-String speciesname =  ""; // "Oscillatoria animalis";
+String speciesname =  "Oscillatoria animalis"; // "Oscillatoria animalis";
 Capture cam;
 
 void setup() {
@@ -38,7 +38,7 @@ void setup() {
     cam.start();
   }
   // font/size
-  italicfont = createFont("Times New Roman Italic",24);
+  italicfont = createFont("TradeGothicLTStd-Obl.otf",24);
 }
 
 void draw() {
@@ -46,10 +46,16 @@ void draw() {
     cam.read();
   }
   image(cam, 0, 0, width, height);
+  // filter(POSTERIZE,10); // contrast?
+  // filter(DILATE); // contrast?
+  // image(cam,0,0,640,480);
+  // filter(ERODE);
+  // filter(ERODE);
+
   // write text to corner
   textFont(italicfont);
   text(speciesname,30,30);
-  
+
   // The following does the same as the above image() line, but 
   // is faster when just drawing the image without any additional 
   // resizing, transformations, or tint.
